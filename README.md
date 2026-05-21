@@ -11,44 +11,59 @@ To write a python program for creating File Transfer using TCP Sockets Links
 ## SERVER
 ```
 import socket
-# Create socket
-server = socket.socket()
-# Bind IP and port
-server.bind(("127.0.0.1", 5555))
-# Listen for client
-server.listen(1)
-print("Server waiting for connection...")
-# Accept client
-client, addr = server.accept()
-print("Connected to:", addr)
-# Ask filename
-filename = input("Enter file name to send: ")
-# Open and send file
-with open(filename, "rb") as file:
- data = file.read()
- client.send(data)
-print("File sent successfully")
-# Close connections
-client.close()
-server.close()
+
+port = 60000
+s = socket.socket()
+host = socket.gethostname()
+
+s.bind((host, port))
+s.listen(5)
+print("Server is listening...")
+
+while True:
+    conn, addr = s.accept()
+    print('Got connection from', addr)
+
+    data = conn.recv(1024)
+    print('Server received:', repr(data))
+
+    filename = 'mytext.txt'
+    with open(filename, 'rb') as f:
+        l = f.read(1024)
+        while l:
+            conn.send(l)
+            print('Sent', repr(l))
+            l = f.read(1024)
+
+    print('Done sending.')
+    conn.close()
+    print('Connection closed.\n')
 ```
 ## CLIENT
 ```
 import socket
-# Create socket
-client = socket.socket()
-# Connect to server
-client.connect(("127.0.0.1", 5555))
-# Save file name
-save_name = input("Enter name to save file: ")
-# Receive data
-data = client.recv(1000000)
-# Save file
-with open(save_name, "wb") as file:
- file.write(data)
-print("File received successfully")
-# Close connection
-client.close()
+
+s = socket.socket()
+host = socket.gethostname()  # or use server IP if on different system
+port = 60000
+
+s.connect((host, port))
+print("Connected to server.")
+
+# Optional greeting
+s.send("Hello server!".encode())
+
+with open('received_file', 'wb') as f:
+    while True:
+        print('Receiving data...')
+        data = s.recv(1024)
+        if not data:
+            break
+        f.write(data)
+
+print('Successfully received the file.')
+s.close()
+print('Connection closed.')
 ```
 ## OUTPUT
 ## SERVER
