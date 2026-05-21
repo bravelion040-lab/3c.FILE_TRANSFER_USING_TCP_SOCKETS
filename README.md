@@ -72,71 +72,9 @@ print('Connection closed.')
 <img width="953" height="296" alt="image" src="https://github.com/user-attachments/assets/7dd768a7-719a-40eb-8606-7b61d1ae9600" />
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## CLIENT
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <img width="937" height="342" alt="image" src="https://github.com/user-attachments/assets/0daf1adb-d110-41d2-940c-2474fdf626c4" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
