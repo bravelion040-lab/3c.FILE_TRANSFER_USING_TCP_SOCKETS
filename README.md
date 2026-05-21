@@ -86,7 +86,6 @@ print('Connection closed.')
 
 
 
-
 <img width="937" height="342" alt="image" src="https://github.com/user-attachments/assets/0daf1adb-d110-41d2-940c-2474fdf626c4" />
 
 
