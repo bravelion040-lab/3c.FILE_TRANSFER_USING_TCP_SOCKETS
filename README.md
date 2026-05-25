@@ -11,70 +11,63 @@ To write a python program for creating File Transfer using TCP Sockets Links
 ## SERVER
 ```
 import socket
-
-port = 60000
-s = socket.socket()
-host = socket.gethostname()
-
-s.bind((host, port))
-s.listen(5)
-print("Server is listening...")
-
-while True:
-    conn, addr = s.accept()
-    print('Got connection from', addr)
-
-    data = conn.recv(1024)
-    print('Server received:', repr(data))
-
-    filename = 'mytext.txt'
-    with open(filename, 'rb') as f:
-        l = f.read(1024)
-        while l:
-            conn.send(l)
-            print('Sent', repr(l))
-            l = f.read(1024)
-
-    print('Done sending.')
-    conn.close()
-    print('Connection closed.\n')
+server = socket.socket()
+server.bind(("127.0.0.1", 5555))
+server.listen(1)
+print("Server waiting for connection...")
+client, addr = server.accept()
+print("Connected to:", addr)
+filename = input("Enter file name to send: ")
+with open(filename, "rb") as file:
+    data = file.read()
+    client.send(data)
+print("File sent successfully")
+client.close()
+server.close()
 ```
 ## CLIENT
 ```
 import socket
-
-s = socket.socket()
-host = socket.gethostname()  # or use server IP if on different system
-port = 60000
-
-s.connect((host, port))
-print("Connected to server.")
-
-# Optional greeting
-s.send("Hello server!".encode())
-
-with open('received_file', 'wb') as f:
-    while True:
-        print('Receiving data...')
-        data = s.recv(1024)
-        if not data:
-            break
-        f.write(data)
-
-print('Successfully received the file.')
-s.close()
-print('Connection closed.')
+client = socket.socket()
+client.connect(("127.0.0.1", 5555))
+save_name = input("Enter name to save file: ")
+data = client.recv(1000000)
+with open(save_name, "wb") as file:
+    file.write(data)
+print("File received successfully")
+client.close()
 ```
 ## OUTPUT
 ## SERVER
 
 
-<img width="953" height="296" alt="image" src="https://github.com/user-attachments/assets/7dd768a7-719a-40eb-8606-7b61d1ae9600" />
+<img width="1920" height="1080" alt="Screenshot 2026-05-20 113916" src="https://github.com/user-attachments/assets/91d39135-29ab-40d9-b79f-d6a7bd6af08a" />
+
+
+
+## Sample.txt
+
+
+<img width="1920" height="1080" alt="Screenshot 2026-05-20 113942" src="https://github.com/user-attachments/assets/d5cc35dc-634b-407f-8289-d3735f1d7c7d" />
+
+
+
 
 
 ## CLIENT
 
-<img width="937" height="342" alt="image" src="https://github.com/user-attachments/assets/0daf1adb-d110-41d2-940c-2474fdf626c4" />
+<img width="1920" height="1080" alt="Screenshot 2026-05-20 113930" src="https://github.com/user-attachments/assets/30853e31-f3c5-4ca7-a1bb-723a3bcb35db" />
+
+## Received.txt
+
+
+
+
+
+
+<img width="1920" height="1080" alt="Screenshot 2026-05-20 113955" src="https://github.com/user-attachments/assets/1712a4e0-8bbc-4411-9809-f4bc40d5839e" />
+
+
 
 
 
