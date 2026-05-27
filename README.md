@@ -41,14 +41,15 @@ client.close()
 ## SERVER
 
 
-<img width="1920" height="1080" alt="Screenshot 2026-05-20 113916" src="https://github.com/user-attachments/assets/91d39135-29ab-40d9-b79f-d6a7bd6af08a" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/61d2038b-f2bb-4c94-981c-cf36a199b6ef" />
+
 
 
 
 ## Sample.txt
 
 
-<img width="1920" height="1080" alt="Screenshot 2026-05-20 113942" src="https://github.com/user-attachments/assets/d5cc35dc-634b-407f-8289-d3735f1d7c7d" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7649942f-5b92-4ab2-a78d-5f4ef16b7895" />
 
 
 
@@ -56,7 +57,8 @@ client.close()
 
 ## CLIENT
 
-<img width="1920" height="1080" alt="Screenshot 2026-05-20 113930" src="https://github.com/user-attachments/assets/30853e31-f3c5-4ca7-a1bb-723a3bcb35db" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/db81e48b-82cc-48f0-9a4a-2a6173de0c59" />
+
 
 ## Received.txt
 
@@ -65,7 +67,8 @@ client.close()
 
 
 
-<img width="1920" height="1080" alt="Screenshot 2026-05-20 113955" src="https://github.com/user-attachments/assets/1712a4e0-8bbc-4411-9809-f4bc40d5839e" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8a287ea3-f447-47d6-ba74-6eec40d1ae30" />
+
 
 
 
